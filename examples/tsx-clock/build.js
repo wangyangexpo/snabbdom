@@ -1163,11 +1163,13 @@ define("examples/tsx-clock/app", ["require", "exports", "src/jsx", "src/snabbdom
             // update date every second
             setInterval(() => this.update({ date: new Date() }), 1000);
         }
+
         update(stateUpdate) {
             // simple update -> render -> callback loop
             this.state = Object.assign(this.state, stateUpdate);
             this.props.renderCallback(this.render());
         }
+
         render() {
             // inspired from https://codepen.io/prathameshkoshti/pen/Rwwaqgv
             const hours = new Date().getHours() > 12
