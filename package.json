@@ -42,7 +42,7 @@
     "xyz": "2.1.0"
   },
   "scripts": {
-    "lint:js": "eslint --ignore-path .gitignore --ignore-pattern /dist --ext .js,.ts .",
+    "lint:js": "eslint --ignore-path .gitignore --ignore-pattern /dist --ignore-pattern /examples/*/build.js --ext .js,.ts .",
     "lint:editorconfig": "editorconfig-checker",
     "lint": "run-s lint:editorconfig lint:js",
     "unit": "karma start",

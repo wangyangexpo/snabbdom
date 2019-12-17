@@ -61,7 +61,6 @@ performance, small size and all the features listed below.
   * Powerful event listener functionality.
   * [Thunks](#thunks) to optimize the diff and patch process even further.
 * Third party features
-  * JSX support thanks to [snabbdom-pragma](https://github.com/Swizz/snabbdom-pragma).
   * Server-side HTML output provided by [snabbdom-to-html](https://github.com/acstll/snabbdom-to-html).
   * Compact virtual DOM creation with [snabbdom-helpers](https://github.com/krainboltgreene/snabbdom-helpers).
   * Template string support using [snabby](https://github.com/jamen/snabby).
@@ -106,6 +105,7 @@ patch(newVnode, null)
 * [Animated reordering of elements](http://snabbdom.github.io/snabbdom/examples/reorder-animation/)
 * [Hero transitions](http://snabbdom.github.io/snabbdom/examples/hero/)
 * [SVG Carousel](http://snabbdom.github.io/snabbdom/examples/carousel-svg/)
+* [TSX Clock](http://snabbdom.github.io/snabbdom/examples/tsx-clock/)
 
 ## Core documentation
 
@@ -163,7 +163,7 @@ var vnode = h('div', {style: {color: '#000'}}, [
 
 ### `snabbdom/tovnode`
 
-Converts a DOM node into a virtual node. Especially good for patching over an pre-existing, 
+Converts a DOM node into a virtual node. Especially good for patching over an pre-existing,
 server-side generated content.
 
 ```javascript
@@ -580,6 +580,77 @@ The view function here is only an example. In practice thunks are only
 relevant if you are rendering a complicated view that takes
 significant computational time to generate.
 
+## JSX
+
+[JSX](https://facebook.github.io/jsx/) is an XML-like syntax extension to JavaScript (ECMAScript).
+Instead of using `h(tag, props, children)` to define the virtual tree,
+Snabbdom supports using JSX with Babel and Typescript transpilers.
+
+Built-in `jsx` function is a very thin and performant layer on top of `h`.
+Top level props are the initialized modules such as `class`, `attrs`, `props`, `on`, `style`.
+
+### Setup with Typescript
+
+tsconfig.json
+```json
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "jsx",
+  }
+}
+```
+
+profile.tsx
+```tsx
+import {jsx} from 'snabbdom/jsx';
+
+const profile = (
+  <div>
+    <img class={{profile: true}} attrs={{src: "avatar.png"}} />
+    <h3>{[user.firstName, user.lastName].join(' ')}</h3>
+  </div>
+);
+```
+
+### Setup with Babel
+
+Install plugin-transform-react-jsx: `npm install --save-dev @babel/plugin-transform-react-jsx`
+
+.babelrc
+```json
+{
+  "plugins": [
+    ["@babel/plugin-transform-react-jsx", {
+      "pragma": "jsx",
+    }]
+  ]
+}
+```
+
+profile.jsx
+```jsx
+import {jsx} from 'snabbdom/jsx';
+
+const profile = (
+  <div>
+    <img class={{profile: true}} attrs={{src: "avatar.png"}} />
+    <h3>{[user.firstName, user.lastName].join(' ')}</h3>
+  </div>
+);
+```
+
+### Example
+ * [TSX Clock](http://snabbdom.github.io/snabbdom/examples/tsx-clock/)
+ * [TSX Clock source](examples/tsx-clock/)
+
+### Third party JSX modules
+
+These notable third party modules support an optional flattened flavor of jsx.
+
+* [snabbdom-pragma](https://github.com/Swizz/snabbdom-pragma)
+* [snabbdom-jsx](https://github.com/snabbdom-jsx/snabbdom-jsx)
+
 ## Virtual Node
 **Properties**
 - [sel](#sel--string)
@@ -698,7 +769,7 @@ Here are some approaches to building applications with Snabbdom.
   A JavaScript library for rendering html. Tung helps to divide html and JavaScript development.
 * [sprotty](https://github.com/theia-ide/sprotty) - "A web-based diagramming framework" uses Snabbdom.
 * [Mark Text](https://github.com/marktext/marktext) - "Realtime preview Markdown Editor" build on Snabbdom.
-* [puddles](https://github.com/flintinatux/puddles) - 
+* [puddles](https://github.com/flintinatux/puddles) -
   "Tiny vdom app framework. Pure Redux. No boilerplate." - Built with :heart: on Snabbdom.
 * [Backbone.VDOMView](https://github.com/jcbrand/backbone.vdomview) - A [Backbone](http://backbonejs.org/) View with VirtualDOM capability via Snabbdom.
 * [Rosmaro Snabbdom starter](https://github.com/lukaszmakuch/rosmaro-snabbdom-starter) - Building user interfaces with state machines and Snabbdom.
