@@ -1,4 +1,5 @@
-import {VNode, VNodeData} from './src/vnode';
+import {VNode} from './src/vnode';
+import {JsxVNodeProps} from './src/jsx';
 
 declare global {
   /**
@@ -8,7 +9,7 @@ declare global {
   namespace JSX {
     type Element = VNode;
     interface IntrinsicElements {
-      [elemName: string]: VNodeData;
+      [elemName: string]: JsxVNodeProps;
     }
   }
 }
