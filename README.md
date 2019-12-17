@@ -163,7 +163,7 @@ var vnode = h('div', {style: {color: '#000'}}, [
 
 ### `snabbdom/tovnode`
 
-Converts a DOM node into a virtual node. Especially good for patching over an pre-existing,
+Converts a DOM node into a virtual node. Especially good for patching over an pre-existing, 
 server-side generated content.
 
 ```javascript
@@ -584,12 +584,12 @@ significant computational time to generate.
 
 [JSX](https://facebook.github.io/jsx/) is an XML-like syntax extension to JavaScript (ECMAScript).
 Instead of using `h(tag, props, children)` to define the virtual tree,
-Snabbdom supports using JSX with Babel and Typescript transpilers.
+Snabbdom supports using JSX with transpilers such as Babel and Typescript.
 
 Built-in `jsx` function is a very thin and performant layer on top of `h`.
-Top level props are the initialized modules such as `class`, `attrs`, `props`, `on`, `style`.
+Top level props are the initialized [modules](#modules-documentation) such as `class`, `attrs`, `props`, `on`, `style`.
 
-### Setup with Typescript
+### JSX with Typescript
 
 tsconfig.json
 ```json
@@ -613,7 +613,7 @@ const profile = (
 );
 ```
 
-### Setup with Babel
+### JSX with Babel
 
 Install plugin-transform-react-jsx: `npm install --save-dev @babel/plugin-transform-react-jsx`
 
@@ -640,7 +640,7 @@ const profile = (
 );
 ```
 
-### Example
+### JSX examples
  * [TSX Clock](http://snabbdom.github.io/snabbdom/examples/tsx-clock/)
  * [TSX Clock source](examples/tsx-clock/)
 
@@ -769,7 +769,7 @@ Here are some approaches to building applications with Snabbdom.
   A JavaScript library for rendering html. Tung helps to divide html and JavaScript development.
 * [sprotty](https://github.com/theia-ide/sprotty) - "A web-based diagramming framework" uses Snabbdom.
 * [Mark Text](https://github.com/marktext/marktext) - "Realtime preview Markdown Editor" build on Snabbdom.
-* [puddles](https://github.com/flintinatux/puddles) -
+* [puddles](https://github.com/flintinatux/puddles) - 
   "Tiny vdom app framework. Pure Redux. No boilerplate." - Built with :heart: on Snabbdom.
 * [Backbone.VDOMView](https://github.com/jcbrand/backbone.vdomview) - A [Backbone](http://backbonejs.org/) View with VirtualDOM capability via Snabbdom.
 * [Rosmaro Snabbdom starter](https://github.com/lukaszmakuch/rosmaro-snabbdom-starter) - Building user interfaces with state machines and Snabbdom.
