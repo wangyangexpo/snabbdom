@@ -16,6 +16,7 @@
         ]
     },
     "files": [
+        "jsx-global.d.ts",
         "src/helpers/attachto.ts",
         "src/modules/attributes.ts",
         "src/modules/class.ts",
@@ -29,7 +30,6 @@
         "src/htmldomapi.ts",
         "src/hooks.ts",
         "src/is.ts",
-        "src/jsx-global.d.ts",
         "src/jsx.ts",
         "src/snabbdom.bundle.ts",
         "src/snabbdom.ts",
