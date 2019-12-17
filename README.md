@@ -607,7 +607,7 @@ import {jsx} from 'snabbdom/jsx';
 
 const profile = (
   <div>
-    <img class={{profile: true}} attrs={{src: "avatar.png"}} />
+    <img sel='.profile' attrs={{src: 'avatar.png'}} />
     <h3>{[user.firstName, user.lastName].join(' ')}</h3>
   </div>
 );
@@ -634,7 +634,7 @@ import {jsx} from 'snabbdom/jsx';
 
 const profile = (
   <div>
-    <img class={{profile: true}} attrs={{src: "avatar.png"}} />
+    <img sel='.profile' attrs={{src: 'avatar.png'}} />
     <h3>{[user.firstName, user.lastName].join(' ')}</h3>
   </div>
 );
