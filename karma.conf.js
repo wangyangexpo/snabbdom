@@ -14,12 +14,12 @@ const browsers = ci
       ? ['Chrome']
       : ['Chrome', 'Firefox'];
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: '.',
     frameworks: ['mocha', 'karma-typescript'],
     // list of files / patterns to load in the browser
-    files: [{pattern: 'src/**/*.ts'}, {pattern: 'test/**/*'}],
+    files: [{ pattern: 'src/**/*.ts' }, { pattern: 'test/**/*' }],
     plugins: [
       'karma-mocha',
       'karma-chrome-launcher',
