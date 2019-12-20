@@ -10,6 +10,9 @@
     "test": "test"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/travis-cli": "^8.2.0",
     "@types/assert": "^1.4.3",
     "@types/mocha": "^5.2.7",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
@@ -93,6 +96,7 @@
   "homepage": "https://github.com/paldepind/snabbdom#readme",
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "run-s docs check-clean test"
     }
   },
