@@ -1,19 +1,11 @@
 {
+    "extends": "tsconfigs/browser-module",
     "compilerOptions": {
+        "esModuleInterop": false,
+        "strictFunctionTypes": false,
         "target": "ES5",
-        "noImplicitAny": true,
-        "sourceMap": true,
-        "strictNullChecks": true,
-        "declaration": true,
-        "removeComments": false,
-        "noUnusedLocals": true,
         "jsx": "react",
-        "jsxFactory": "jsx",
-        "lib": [
-            "dom",
-            "es5",
-            "es2015.core"
-        ]
+        "jsxFactory": "jsx"
     },
     "files": [
         "src/helpers/attachto.ts",

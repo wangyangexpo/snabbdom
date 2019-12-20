@@ -46,6 +46,7 @@ module.exports = function(config) {
         exclude: /test\//,
       },
       compilerOptions: {
+        module: 'commonjs',
         allowJs: true,
         declaration: false
       },
